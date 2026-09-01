@@ -1,25 +1,23 @@
 // src/components/Card.js
 import './Card.css';
+import imageDefault from '../../img/hat1.png'
 
-export default function Card({ id, name, image, description }) {
+export default function Card({ name, image }) {
   return (
       <article className="card">
-        {/* Contenedor de la imagen */}
         <div className="card-image-container">
-          {image ? (
-            <img src={image} alt={`Imagen de ${name}`} className="card-image" />
-          ) : (
+          {image ? (<img src={image} alt={`Imagen de ${name}`} className="card-image" />) 
+          : 
+          (
             // Fallback si el ítem no tiene imagen
             <div className="card-image-placeholder">
-              <span>Sin imagen</span>
+              <img src={imageDefault} alt={`Imagen por defecto`} className="card-image" />
             </div>
           )}
         </div>
 
-        {/* Contenido resumido (RF3) */}
         <div className="card-content">
-          <h3 className="card-title">{name || 'Nombre Desconocido'}</h3>
-          {description && <p className="card-description">{description}</p>}
+          <h3 className="card-title">{name || 'Nombre desconocido'}</h3>
         </div>
       </article>
   );

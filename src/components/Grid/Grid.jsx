@@ -1,13 +1,11 @@
 import Card from '../Card/Card';
+import './Grid.css'
 
-export default function Grid() {
-  // Datos temporales para probar la maqueta
-  const mockItems = [1, 2, 3, 4]; 
-
+export default function Grid({results}) {
   return (
     <div className="grid-container">
-      {mockItems.map((item) => (
-        <Card key={item} id={item} />
+      {results.map((character) => (
+        <Card key={character.id} name={character.name} image={character.image}/>
       ))}
     </div>
   );
