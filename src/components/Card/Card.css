@@ -1,0 +1,6 @@
+.card {
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1; /* Para que sean cuadrados perfectos */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
