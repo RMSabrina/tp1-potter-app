@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Search from './pages/Search';
-import Detail from './pages/Detail.jsx';
+import Detail from './pages/Detail/Detail.jsx';
 import Wishlist from './pages/Wishlist';
 import History from './pages/History';
 import Contact from './pages/Contact';
@@ -25,7 +25,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           
           {/* RF4: Vista de detalle (el :id es dinámico para saber qué ítem cargar) */}
-          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/character/:id" element={<Detail />} />
           
           {/* RF5: Lista de deseos */}
           <Route path="/wishlist" element={<Wishlist />} />

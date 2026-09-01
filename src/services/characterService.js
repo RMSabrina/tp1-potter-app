@@ -22,3 +22,18 @@ export const getCharacters = async () => {
     throw error;
   }
 };
+
+export const getCharacterById = async (id) => {
+  try {
+    const response = await fetch(`https://api.potterdb.com/v1/characters/${id}`);
+    if (!response.ok) throw new Error("Error al obtener el personaje");
+    
+    const data = await response.json();
+    return data.data.attributes;
+  } 
+  
+  catch (error) {
+    console.error("Error obteniendo el detalle:", error);
+    throw error;
+  }
+};

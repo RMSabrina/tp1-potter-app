@@ -5,7 +5,7 @@ export default function Grid({results}) {
   return (
     <div className="grid-container">
       {results.map((character) => (
-        <Card key={character.id} name={character.name} image={character.image}/>
+        <Card id={character.id} key={character.id} name={character.name} image={character.image}/>
       ))}
     </div>
   );
