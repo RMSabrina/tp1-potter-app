@@ -51,10 +51,9 @@
   padding-bottom: 10px;
 }
 
-/* Grilla para ordenar la información como si fueran etiquetas */
 .detail-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Una columna en celulares */
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 
@@ -62,7 +61,7 @@
   font-size: 1rem;
   color: #374151;
   padding: 8px 12px;
-  background-color: #f3f4f6; /* Un gris muy clarito de fondo */
+  background-color: #f3f4f6;
   border-radius: 6px;
 }
 
