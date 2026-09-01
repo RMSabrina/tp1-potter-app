@@ -1,13 +1,100 @@
-.detail-container{
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    margin-top: 2rem;
+/* Contenedor general de la página */
+.detail-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-.detail-container h2{
-    margin-bottom: 2rem;
-    text-align: center;
+.detail-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; 
 }
 
+
+
+/* Imagen */
+.detail-image-wrapper {
+  width: 100%;
+  height: 350px; /* Alto fijo en celulares para que no ocupe toda la pantalla */
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-no-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+}
+
+/* Contenedor de los textos */
+.detail-content {
+  padding: 24px;
+}
+
+.detail-name {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #111827;
+  text-align: center;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+/* Grilla para ordenar la información como si fueran etiquetas */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en celulares */
+  gap: 12px;
+}
+
+.detail-item {
+  font-size: 1rem;
+  color: #374151;
+  padding: 8px 12px;
+  background-color: #f3f4f6; /* Un gris muy clarito de fondo */
+  border-radius: 6px;
+}
+
+.detail-item strong {
+  color: #111827;
+}
+
+.loading-text {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2rem;
+}
+
+/* ----------------------------------------------------
+   MEDIA QUERIES
+---------------------------------------------------- */
+@media (min-width: 768px) {
+  .detail-card {
+    flex-direction: row; 
+  }
+
+  .detail-image-wrapper {
+    width: 40%;
+    height: auto; 
+    min-height: 500px;
+  }
+
+  .detail-content {
+    width: 60%;
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
