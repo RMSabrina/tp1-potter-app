@@ -11,7 +11,7 @@ export default function Card({ id, name, image, description }) {
           ) : (
             // Fallback si el ítem no tiene imagen
             <div className="card-image-placeholder">
-              <span>N/A</span>
+              <span>Sin imagen</span>
             </div>
           )}
         </div>

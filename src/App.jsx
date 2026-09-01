@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* El Header queda por fuera de Routes para que se vea en todas las pantallas. */}
-      <Header /> 
+      <Header></Header>
       
       <main>
         <Routes>

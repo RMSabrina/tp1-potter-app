@@ -5,7 +5,6 @@ import Grid from '../components/Grid/Grid.jsx';
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <section className="featured-section">
