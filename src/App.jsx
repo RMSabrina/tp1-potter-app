@@ -25,7 +25,7 @@ function App() {
           <Route path={ROUTES.SEARCH} element={<Search />} />
           
           {/* RF4: Vista de detalle (el :id es dinámico para saber qué ítem cargar) */}
-          <Route path={ROUTES.CHARACTER} element={<Detail />} />
+          <Route path={ROUTES.DETAILS} element={<Detail />} />
           
           {/* RF5: Lista de deseos */}
           <Route path={ROUTES.WISHLIST} element={<Wishlist />} />

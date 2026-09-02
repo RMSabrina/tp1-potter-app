@@ -139,7 +139,7 @@ export default function Search() {
         {error && <p className="error-message">{error}</p>}
 
         {!loading && !error && hasSearched && results.length > 0 && (
-          <Grid results={results} />
+          <Grid results={results} entity={entity} />
         )}
 
         {!loading && !error && hasSearched && results.length === 0 && (

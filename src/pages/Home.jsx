@@ -1,7 +1,7 @@
 import Hero from '../components/Hero/Hero.jsx';
 import Grid from '../components/Grid/Grid.jsx';
 import { useState, useEffect } from 'react';
-import {getCharacters} from '../services/characterService.js'
+import { getCharacters } from '../services/entityService.js';
 
 export default function Home() {
     const [characters, setCharacters] = useState([]);
@@ -26,7 +26,7 @@ export default function Home() {
         <main className="home-container">
             <Hero />
             {loading ? (<p>Cargando información...</p>) : 
-                        (<Grid results={characters} />)
+                        (<Grid results={characters} entity="characters"/>)
             }
         </main>
     );

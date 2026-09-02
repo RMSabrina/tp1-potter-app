@@ -31,6 +31,25 @@ export const ENTITY_CONFIG = {
         ],
       },
     ],
+    // [Campos que se muestran en la vista de Detail
+    detail: {
+      primaryFields: [
+        { key: 'house', label: 'Casa', fallback: 'Desconocida' },
+        { key: 'species', label: 'Especie', fallback: 'Desconocida' },
+        { key: 'blood_status', label: 'Sangre', fallback: 'Desconocida' },
+        { key: 'gender', label: 'Género', fallback: 'Desconocido' },
+      ],
+      optionalFields: [
+        { key: 'nationality', label: 'Nacionalidad' },
+        { key: 'born', label: 'Nacimiento' },
+        { key: 'died', label: 'Fallecimiento' },
+        { key: 'patronus', label: 'Patronus' },
+        { key: 'boggart', label: 'Boggart' },
+        { key: 'animagus', label: 'Animago' },
+        { key: 'eye_color', label: 'Ojos' },
+        { key: 'hair_color', label: 'Pelo' },
+      ],
+    },
   },
 
   spells: {
@@ -63,6 +82,18 @@ export const ENTITY_CONFIG = {
         ],
       },
     ],
+    detail: {
+      primaryFields: [
+        { key: 'category', label: 'Categoría', fallback: 'Desconocida' },
+        { key: 'light', label: 'Color de luz', fallback: 'Desconocido' },
+      ],
+      optionalFields: [
+        { key: 'incantation', label: 'Encantamiento' },
+        { key: 'creator', label: 'Creador' },
+        { key: 'effect', label: 'Efecto' },
+        { key: 'hand', label: 'Movimiento de mano' },
+      ],
+    },
   },
 
   potions: {
@@ -88,6 +119,18 @@ export const ENTITY_CONFIG = {
         placeholder: 'Ej. Healing, poison...',
       },
     ],
+    detail: {
+      primaryFields: [
+        { key: 'difficulty', label: 'Dificultad', fallback: 'Desconocida' },
+      ],
+      optionalFields: [
+        { key: 'effect', label: 'Efecto' },
+        { key: 'side_effects', label: 'Efectos secundarios' },
+        { key: 'time', label: 'Tiempo de preparación' },
+        { key: 'ingredients', label: 'Ingredientes' },
+        { key: 'characteristics', label: 'Características' },
+      ],
+    },
   },
 };
 
