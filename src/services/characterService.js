@@ -1,6 +1,6 @@
 export const getCharacters = async () => {
   try {
-    const response = await fetch("https://api.potterdb.com/v1/characters?page[size]=10");
+    const response = await fetch("https://api.potterdb.com/v1/characters?page[size]=50");
     
     if (!response.ok) {
       throw new Error("Error al obtener los personajes");
@@ -8,13 +8,15 @@ export const getCharacters = async () => {
     
     const data = await response.json();
 
-    // Filtrar y aplanar los datos para el front (como se habló en clase)
     const shortCharacters = data.data.map(character => ({
       id: character.id,
       name: character.attributes.name,
       image: character.attributes.image
     }));
-    return shortCharacters;
+
+    shortCharacters.sort((a, b) => Boolean(b.image) - Boolean(a.image));
+
+    return shortCharacters.slice(0,10);
   } 
   
   catch (error) {

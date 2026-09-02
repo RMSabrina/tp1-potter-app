@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     margin: 1rem;
+    gap: 10px;
 }
 
 
@@ -11,8 +12,45 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-
     border: 2px solid #110b35;
-
+    padding-top:5px;
     object-fit: cover;
+}
+
+/* ----------------------------------------------------
+   MEDIA QUERIES
+---------------------------------------------------- */
+
+/* Landscape (481px – 767px) */
+@media (min-width: 481px) {
+  .hero-container {
+    margin: 2rem; /* Le damos más respiro a los costados */
+  }
+  .hero-icon {
+    width: 65px; /* Agrandamos un poco el ícono */
+    height: 65px;
+  }
+}
+
+/* Tablet(768px – 1023px) */
+@media (min-width: 768px) {
+  .hero-container {
+    gap: 20px;
+  }
+  .hero-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Desktop (más de 1024px) */
+@media (min-width: 1024px) {
+  .hero-container {
+    margin: 3rem;
+    gap: 30px; 
+  }
+  .hero-icon {
+    width: 100px; 
+    height: 100px;
+  }
 }

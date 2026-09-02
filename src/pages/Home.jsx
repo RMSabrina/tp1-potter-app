@@ -5,10 +5,9 @@ import {getCharacters} from '../services/characterService.js'
 
 export default function Home() {
     const [characters, setCharacters] = useState([]);
-    const [charging, setCharging] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Definimos una función local para manejar el async/await
         const loadData = async () => {
         try {
             const data = await getCharacters(); 
@@ -16,7 +15,7 @@ export default function Home() {
         } catch (error) {
             console.error("Falló la carga en Home"); 
         } finally {
-            setCharging(false);
+            setLoading(false);
         }
         };
 
@@ -26,7 +25,7 @@ export default function Home() {
     return (
         <main className="home-container">
             <Hero />
-            {charging ? (<p>Cargando información...</p>) : 
+            {loading ? (<p>Cargando información...</p>) : 
                         (<Grid results={characters} />)
             }
         </main>

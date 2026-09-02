@@ -33,7 +33,7 @@
 .card-image-placeholder img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* el ícono default no necesita cover */
+  object-fit: contain; 
 }
 
 .card-content {
