@@ -1,0 +1,217 @@
+/* ==========================================================================
+   [1] Variables globales — paleta "Wizarding World"
+   ========================================================================== */
+:root {
+  --hp-bg-dark: #0d0d12;
+  --hp-bg-panel: #17171f;
+  --hp-bg-panel-hover: #1f1f2b;
+  --hp-border: #2c2c3a;
+  --hp-gold: #d3a625;
+  --hp-gold-hover: #e8c15a;
+  --hp-text: #f2f0e6;
+  --hp-text-muted: #a8a6b3;
+  --hp-error: #c0392b;
+  --hp-font-display: 'Georgia', 'Times New Roman', serif;
+  --hp-font-body: 'Helvetica Neue', Arial, sans-serif;
+  --hp-radius: 4px;
+  --hp-transition: 0.25s ease;
+}
+
+/* ==========================================================================
+   [2] Layout general
+   ========================================================================== */
+.search-container {
+  min-height: 100vh;
+  color: var(--hp-text);
+  font-family: var(--hp-font-body);
+  padding: 3rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* ==========================================================================
+   [3] Sección de búsqueda / formulario
+   ========================================================================== */
+.search-section {
+  width: 100%;
+  max-width: 640px;
+}
+
+.search-section h1 {
+  font-family: var(--hp-font-display);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-align: center;
+  font-size: 2.25rem;
+  color: whitesmoke;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Adorno tipo "línea partida" bajo el título, común en sitios editoriales de HP */
+.search-section h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 0.75rem auto 0;
+  background: linear-gradient(90deg, transparent, white, transparent);
+}
+
+.search-form {
+  background-color: var(--hp-bg-panel);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.search-form hr {
+  border: none;
+  border-top: 1px solid var(--hp-border);
+  margin: 0.25rem 0;
+}
+
+/* ==========================================================================
+   [4] Campos de filtro (inputs, selects, labels)
+   ========================================================================== */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.filter-group label {
+  font-family: var(--hp-font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--hp-text-muted);
+}
+
+.filter-group input[type='text'],
+.filter-group select {
+  background-color: var(--hp-bg-dark);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius);
+  color: var(--hp-text);
+  font-family: var(--hp-font-body);
+  font-size: 1rem;
+  padding: 0.65rem 0.85rem;
+  transition: border-color var(--hp-transition), box-shadow var(--hp-transition);
+  appearance: none;
+}
+
+.filter-group select {
+  /* Flecha custom dorada en vez de la nativa del navegador */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23d3a625' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.25rem;
+  cursor: pointer;
+}
+
+.filter-group input[type='text']::placeholder {
+  color: #6b6976;
+}
+
+.filter-group input[type='text']:focus,
+.filter-group select:focus {
+  outline: none;
+  border-color: whitesmoke;
+  box-shadow: 0 0 0 3px rgba(211, 166, 37, 0.15);
+}
+
+.filter-group select option {
+  background-color: var(--hp-bg-panel);
+  color: var(--hp-text);
+}
+
+/* El selector de entidad tiene un poco más de jerarquía visual */
+.category-selector label {
+  color:white;
+  font-size: 0.95rem;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.category-selector select {
+  border-color: rgba(245, 245, 245, 0.801);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   [5] Botón de búsqueda
+   ========================================================================== */
+.search-form button[type='submit'] {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: transparent;
+  border: 1.5px solid whitesmoke;
+  border-radius: 8px;
+  color: whitesmoke;
+  font-family: var(--hp-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--hp-transition), color var(--hp-transition), box-shadow var(--hp-transition);
+}
+
+.search-form button[type='submit']:hover:not(:disabled) {
+  background-color: rgba(255, 245, 231, 0.9);
+  color: rgb(17, 17, 46);
+  box-shadow: 0 0 20px rgba(211, 166, 37, 0.35);
+}
+
+.search-form button[type='submit']:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--hp-text-muted);
+  color: var(--hp-text-muted);
+}
+
+/* ==========================================================================
+   [6] Sección de resultados
+   ========================================================================== */
+.results-section {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.results-section p {
+  font-family: var(--hp-font-body);
+  color: var(--hp-text-muted);
+  font-size: 1rem;
+}
+
+.results-section .error-message {
+  color: var(--hp-error);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   [7] Responsive
+   ========================================================================== */
+@media (min-width: 640px) {
+  .search-form {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .search-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .search-form {
+    padding: 1.5rem;
+  }
+}

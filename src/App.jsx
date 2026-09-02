@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ROUTES, NAV_ITEMS } from './constants/routes'; 
 
 import Home from './pages/Home';
-import Search from './pages/Search';
+import Search from './pages/Search/Search.jsx';
 import Detail from './pages/Detail/Detail.jsx';
 import Wishlist from './pages/Wishlist';
 import History from './pages/History';
