@@ -10,7 +10,7 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 34px;
   font-weight: 600;
-  color: #2b2118;
+  color: #e7dcd2;
   text-align: center;
   margin-bottom: 32px;
 }
@@ -24,4 +24,8 @@
 .history-timeline {
   display: flex;
   flex-direction: column;
+}
+
+.history-item-name{
+  color: aliceblue;
 }
