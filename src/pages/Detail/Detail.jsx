@@ -3,13 +3,26 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getEntityById } from '../../services/entityService.js';
 import { ENTITY_CONFIG } from '../../constants/entityConfig.js';
+import { addToHistory } from '../../services/historyService.js';
 import './Detail.css';
+
+import {
+  isFavorite,
+  addToFavorites,
+  removeFromFavorites
+} from '../../services/favoriteService.js';
+import AddToFavoritesModal from '../../components/AddToFavoritesModal/AddToFavoritesModal.jsx';
+
+
 
 export default function Detail() {
   const { entity, id } = useParams();
 
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
+
+  const [isFav, setIsFav] = useState(false);
+  const [showFavoriteModal, setShowFavoriteModal] = useState(false);
 
   const config = ENTITY_CONFIG[entity];
 
@@ -22,6 +35,16 @@ export default function Detail() {
       try {
         const data = await getEntityById(entity, id);
         setItem(data);
+
+        setIsFav(isFavorite(id, entity));
+
+        addToHistory({
+          id,
+          entity,
+          name: data.name,
+          image: data.image || null
+        });
+
       } catch {
         setError('No se pudo cargar el detalle.');
       }
@@ -36,6 +59,36 @@ export default function Detail() {
   if (!item) return <p className="loading-text">Cargando detalles...</p>;
 
   const { primaryFields = [], optionalFields = [] } = config.detail || {};
+
+
+  // ------------------------------------------------------------
+  // Favoritos: si ya es favorito, lo quita directo.
+  // Si no, abre el modal para completar priority/category/note.
+  // ------------------------------------------------------------
+  const handleToggleFavorite = () => {
+    if (isFav) {
+      removeFromFavorites(id, entity);
+      setIsFav(false);
+      return;
+    }
+
+    setShowFavoriteModal(true);
+  };
+
+  const handleConfirmFavorite = (formData) => {
+    const favoriteItem = {
+      id,
+      entity,
+      name: item.name,
+      image: item.image || null,
+      ...formData // priority, category, note
+    };
+
+    addToFavorites(favoriteItem);
+    setIsFav(true);
+    setShowFavoriteModal(false);
+  };
+
 
   return (
     <main className="detail-container">
@@ -67,9 +120,28 @@ export default function Detail() {
                 </p>
               )
             ))}
+          <button
+            className={isFav ? 'favorite-btn active' : 'favorite-btn'}
+            onClick={handleToggleFavorite}
+          >
+            {isFav ? '★ Quitar de favoritos' : '☆ Agregar a favoritos'}
+          </button>
           </div>
+          
         </div>
       </div>
+
+      {/* --- modal de favoritos --- */}
+      {showFavoriteModal && (
+        <AddToFavoritesModal
+          item={item}
+          defaultCategory={config.label || entity}
+          onConfirm={handleConfirmFavorite}
+          onClose={() => setShowFavoriteModal(false)}
+        />
+      )}
+
+
     </main>
   );
 }

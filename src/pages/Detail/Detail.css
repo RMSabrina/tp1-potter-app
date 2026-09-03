@@ -71,6 +71,45 @@
   font-size: 1.2rem;
 }
 
+
+.favorite-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+/* --- NUEVAS PROPIEDADES --- */
+  width: fit-content;      /* Hace que el botón mida solo lo necesario para el texto */
+  align-self: center;      /* Evita que un contenedor Flexbox padre lo estire */
+  margin: 20px auto 0;     /* Centra el botón horizontalmente y le da margen arriba */
+  /* -------------------------- */
+
+  padding: 8px 20px;
+  
+  background-color: #1a1a2e;
+  color: #e5e7eb;
+  border: 1px solid #4a4e69;
+  
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+  background-color: #22223b;
+  color: #ffffff;
+  border-color: #c8e7ff;
+  /* Brillo celeste simulando Lumos */
+  box-shadow: 0 0 12px rgba(200, 231, 255, 0.8), inset 0 0 8px rgba(200, 231, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.favorite-btn:active {
+  transform: scale(0.95);
+}
+
+
 /* ----------------------------------------------------
    MEDIA QUERIES
 ---------------------------------------------------- */

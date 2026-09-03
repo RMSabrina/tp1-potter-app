@@ -4,8 +4,8 @@ import { ROUTES, NAV_ITEMS } from './constants/routes';
 import Home from './pages/Home';
 import Search from './pages/Search/Search.jsx';
 import Detail from './pages/Detail/Detail.jsx';
-import Wishlist from './pages/Wishlist';
-import History from './pages/History';
+import Favorites from './pages/Favorites/Favorites.jsx';
+import History from './pages/History/History.jsx';
 import Contact from './pages/Contact';
 
 import Header from './components/Header/Header.jsx';
@@ -28,7 +28,7 @@ function App() {
           <Route path={ROUTES.DETAILS} element={<Detail />} />
           
           {/* RF5: Lista de deseos */}
-          <Route path={ROUTES.WISHLIST} element={<Wishlist />} />
+          <Route path={ROUTES.FAVORITES} element={<Favorites />} />
           
           {/* RF6: Historial de ítems visitados */}
           <Route path={ROUTES.HISTORY} element={<History />} />

@@ -1,0 +1,211 @@
+/* AddToFavoritesModal.css */
+
+.modal-overlay {
+  --parchment: #e8d9ae;
+  --parchment-dark: #ddc98f;
+  --ink: #2b2118;
+  --ink-soft: #5a4c3a;
+  --brass: #a6832e;
+  --seal: #7a1f2b;
+  --seal-dark: #5e1620;
+  --error: #8c2f2f;
+
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 11, 7, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--parchment);
+  color: var(--ink);
+  padding: 36px 32px 28px;
+  border-radius: 2px;
+  border: 1px solid var(--brass);
+  box-shadow:
+    0 0 0 5px var(--parchment),
+    0 0 0 6px var(--brass),
+    0 18px 40px rgba(15, 11, 7, 0.45);
+  font-family: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+}
+
+.modal-ornament,
+.modal-seal {
+  display: block;
+  text-align: center;
+  color: var(--brass);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.modal-content h2 {
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 4px;
+  letter-spacing: 0.01em;
+}
+
+.modal-item-name {
+  text-align: center;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0 0 24px;
+  font-size: 17px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.modal-field label {
+  font-size: 15px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.modal-field input,
+.modal-field textarea {
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: rgba(255, 252, 240, 0.55);
+  border: none;
+  border-bottom: 1.5px solid var(--ink-soft);
+  padding: 8px 4px;
+  border-radius: 0;
+  transition: border-color 0.15s ease;
+}
+
+.modal-field input:focus,
+.modal-field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--seal);
+}
+
+.modal-field input[aria-invalid='true'],
+.modal-field textarea[aria-invalid='true'] {
+  border-bottom-color: var(--error);
+}
+
+.modal-field textarea {
+  resize: vertical;
+  min-height: 64px;
+  line-height: 1.5;
+}
+
+.modal-counter {
+  align-self: flex-end;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.modal-error {
+  font-size: 13px;
+  color: var(--error);
+  margin-top: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.modal-btn {
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.modal-btn--ghost {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.modal-btn--ghost:hover {
+  color: var(--ink);
+}
+
+/* El botón principal se ve como un sello de lacre */
+.modal-btn--seal {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--seal) 0%, var(--seal-dark) 75%);
+  color: var(--parchment);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.25),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.12s ease;
+}
+
+.modal-btn--seal:hover {
+  transform: scale(1.04);
+}
+
+.modal-btn--seal:active {
+  transform: scale(0.97);
+}
+
+.modal-content--success {
+  text-align: center;
+  padding: 44px 32px;
+}
+
+.modal-success-text {
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+  font-size: 17px;
+}
+
+.modal-content--success .modal-btn--secondary {
+  border: 1px solid var(--brass);
+  padding: 10px 28px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+.modal-content--success .modal-btn--secondary:hover {
+  background: var(--parchment-dark);
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .modal-btn--seal {
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 28px 20px 22px;
+  }
+
+  .modal-actions {
+    justify-content: center;
+  }
+}
