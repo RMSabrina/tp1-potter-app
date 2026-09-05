@@ -5,6 +5,10 @@
   margin: 1rem;
 }
 
+.grid-container--default {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
 /* Landscape (481px – 767px)*/
 @media (min-width: 481px) {
   .grid-container {
@@ -24,4 +28,9 @@
   .grid-container {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.grid-container--compact {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 260px));
+  justify-content: start; /* clave: sin esto, el grid estira las columnas para llenar el ancho */
 }

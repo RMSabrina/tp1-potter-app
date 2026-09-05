@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Grid from '../../components/Grid/Grid.jsx';
 import { searchEntities } from '../../services/searchService.js';
 import { ENTITY_CONFIG, COMMON_FIELD } from '../../constants/entityConfig.js';
+import Card from '../../components/Card/Card.jsx';
 import './Search.css'
 
 
@@ -48,7 +49,7 @@ function getEmptyFilters(entity) {
 
 export default function Search() {
   // Estado para la categoría actual (endpoint de la API)
-  const [entity, setEntity] = useState('characters'); 
+  const [entity, setEntity] = useState('characters');
 
   // Estado unificado para todos los posibles filtros (derivado del config)
   const [filters, setFilters] = useState(() => getEmptyFilters('characters'));
@@ -139,7 +140,11 @@ export default function Search() {
         {error && <p className="error-message">{error}</p>}
 
         {!loading && !error && hasSearched && results.length > 0 && (
-          <Grid results={results} entity={entity} />
+          <Grid
+            results={results}
+            renderItem={(item) =>
+              <Card key={item.id} {...item} entity={entity} />}
+          />
         )}
 
         {!loading && !error && hasSearched && results.length === 0 && (

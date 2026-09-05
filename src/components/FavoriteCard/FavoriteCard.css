@@ -44,6 +44,7 @@
 .favorite-card-body {
   flex: 1;
   min-width: 0;
+
 }
 
 .favorite-card-header {

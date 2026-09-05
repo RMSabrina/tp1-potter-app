@@ -1,5 +1,6 @@
 import Hero from '../components/Hero/Hero.jsx';
 import Grid from '../components/Grid/Grid.jsx';
+import Card from '../components/Card/Card.jsx';
 import { useState, useEffect } from 'react';
 import { getCharacters } from '../services/entityService.js';
 
@@ -26,7 +27,11 @@ export default function Home() {
         <main className="home-container">
             <Hero />
             {loading ? (<p>Cargando información...</p>) : 
-                        (<Grid results={characters} entity="characters"/>)
+                        (<Grid 
+                            results={characters} 
+                            renderItem={(item)=>(
+                                <Card key={item.id} {...item} entity="characters"/>
+                            )}/>)
             }
         </main>
     );

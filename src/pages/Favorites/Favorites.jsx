@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import FavoriteCard from '../../components/FavoriteCard/FavoriteCard.jsx';
+import Grid from '../../components/Grid/Grid.jsx';
 import './Favorites.css';
 
 import {
@@ -32,16 +32,18 @@ export default function Wishlist() {
           No tenés ítems agregados a favoritos.
         </p>
       ) : (
-        <div className="wishlist-list">
-          {favorites.map((item) => (
+        <Grid
+          results={favorites}
+          variant="compact"
+          renderItem={(item) => (
             <FavoriteCard
               key={`${item.entity}-${item.id}`}
               item={item}
               onRemove={handleRemove}
             />
-          ))}
-        </div>
       )}
+      />
+    )}
     </main>
   );
 }
