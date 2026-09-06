@@ -1,6 +1,6 @@
 // src/pages/Detail/Detail.jsx
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getEntityById } from '../../services/entityService.js';
 import { ENTITY_CONFIG } from '../../constants/entityConfig.js';
 import { addToHistory } from '../../services/historyService.js';
@@ -14,9 +14,9 @@ import {
 import AddToFavoritesModal from '../../components/AddToFavoritesModal/AddToFavoritesModal.jsx';
 
 
-
 export default function Detail() {
   const { entity, id } = useParams();
+  const navigate = useNavigate(); 
 
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
@@ -93,6 +93,14 @@ export default function Detail() {
   return (
     <main className="detail-container">
       <div className="detail-card">
+
+        {/* --- BOTÓN DE VOLVER FLOTANTE --- */}
+        <button className="back-btn" onClick={() => navigate(-1)} aria-label="Volver">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
         <div className="detail-image-wrapper">
           {item.image ? (
             <img src={item.image} alt={item.name} className="detail-image" />

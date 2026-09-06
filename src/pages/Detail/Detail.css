@@ -11,6 +11,46 @@
   overflow: hidden;
   display: flex;
   flex-direction: column; 
+  position: relative;
+}
+
+
+/* --- ESTILOS DEL NUEVO BOTÓN FLOTANTE --- */
+.back-btn {
+  position: fixed;
+
+/* CAMBIO CLAVE 2: Mantiene 16px en celulares, pero en PC se alinea con tu tarjeta de 900px */
+  left: max(16px, calc((100vw - 900px) / 2 + 16px));
+  z-index: 50;
+
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  margin-top: 4rem;
+  margin-left: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px; /* o 50% si lo prefieres totalmente redondo */
+  background-color: rgba(255, 255, 255, 0.65); /* Fondo translúcido */
+  backdrop-filter: blur(4px); /* Efecto vidrio difuminado */
+  
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  cursor: pointer;
+  color: #111827;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
 }
 
 .detail-image-wrapper {

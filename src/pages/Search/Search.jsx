@@ -3,6 +3,7 @@ import Grid from '../../components/Grid/Grid.jsx';
 import { searchEntities } from '../../services/searchService.js';
 import { ENTITY_CONFIG, COMMON_FIELD } from '../../constants/entityConfig.js';
 import Card from '../../components/Card/Card.jsx';
+import { getSearchState, saveSearchState } from '../../services/searchStateService.js';
 import './Search.css'
 
 
@@ -48,16 +49,18 @@ function getEmptyFilters(entity) {
 
 
 export default function Search() {
+  const savedSearch = getSearchState(); // se lee UNA sola vez
+
   // Estado para la categoría actual (endpoint de la API)
-  const [entity, setEntity] = useState('characters');
+  const [entity, setEntity] = useState(savedSearch?.entity || 'characters');
 
   // Estado unificado para todos los posibles filtros (derivado del config)
-  const [filters, setFilters] = useState(() => getEmptyFilters('characters'));
+  const [filters, setFilters] = useState(savedSearch?.filters || getEmptyFilters('characters'));
 
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(savedSearch?.results || []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [hasSearched, setHasSearched] = useState(false);
+  const [hasSearched, setHasSearched] = useState(!!savedSearch);
 
   // Manejar cambio de categoría (limpiar los filtros y resultados al cambiar)
   const handleEntityChange = (e) => {
@@ -84,6 +87,7 @@ export default function Search() {
     try {
       const formattedData = await searchEntities(entity, filters);
       setResults(formattedData);
+      saveSearchState({ entity, filters, results: formattedData }); // <-- agregar esta línea
     } catch (err) {
       console.error(err);
       setError("Hubo un problema al realizar la búsqueda.");
