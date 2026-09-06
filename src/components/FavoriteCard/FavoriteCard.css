@@ -8,6 +8,10 @@
   --seal: #7a1f2b;
 
   display: flex;
+  /* MOBILE-FIRST: Por defecto en móviles pequeños, la tarjeta se apila */
+  flex-direction: column; 
+  /* ESTA ES LA MAGIA: Evita que el enlace de la imagen se estire */
+  align-items: flex-start;
   gap: 18px;
   background: var(--parchment);
   border: 1px solid var(--brass);
@@ -44,13 +48,22 @@
 .favorite-card-body {
   flex: 1;
   min-width: 0;
+}
 
+.favorite-card-media {
+  position: relative; /* Clave para que el sello se posicione respecto a este div */
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* El link de la imagen ya no necesita flex-shrink, se encarga el media */
+.favorite-card-image-link {
+  display: block; 
 }
 
 .favorite-card-header {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 12px;
 }
 
@@ -73,7 +86,9 @@
 
 /* Sello de lacre con el número de prioridad */
 .favorite-card-seal {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  margin-left:150%;
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -86,7 +101,8 @@
   font-weight: 600;
   box-shadow:
     inset 0 2px 3px rgba(255, 255, 255, 0.25),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+    inset 0 -2px 4px rgba(0, 0, 0, 0.35),
+    0 2px 4px rgba(0,0,0,0.4);;
 }
 
 .favorite-card-tag {

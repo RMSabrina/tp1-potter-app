@@ -32,5 +32,6 @@
 
 .grid-container--compact {
   grid-template-columns: repeat(auto-fill, minmax(220px, 260px));
-  justify-content: start; /* clave: sin esto, el grid estira las columnas para llenar el ancho */
+  justify-content: center; /* clave: sin esto, el grid estira las columnas para llenar el ancho */
+
 }
