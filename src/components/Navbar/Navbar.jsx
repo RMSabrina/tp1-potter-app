@@ -1,19 +1,11 @@
 // src/components/Navbar/Navbar.jsx
 import { NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import { NAV_ITEMS } from '../../constants/routes';  
-
+import { getVisibleNavItems } from '../../constants/routes';
 
 export default function Navbar({ isOpen, onClose }) {
   const location = useLocation();
-
-  // Oculta "Inicio" si ya estamos en "/"
-  const visibleItems = NAV_ITEMS.filter(item => {
-    if (item.path === '/' && location.pathname === '/') {
-      return false;
-    }
-    return true;
-  });
+  const visibleItems = getVisibleNavItems(location.pathname);
 
   return (
     <>

@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { getVisibleNavItems } from '../../constants/routes';
 import Navbar from '../Navbar/Navbar.jsx';
 import './Header.css'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+    const visibleItems = getVisibleNavItems(location.pathname);
 
     const toggleMenu = () => setIsMenuOpen(prev => !prev);
     const closeMenu = () => setIsMenuOpen(false);
@@ -11,7 +15,13 @@ export default function Header() {
     return (
         <>
             <header className="header-container">
-                <button className="menu-btn" aria-label="Open menu" onClick={toggleMenu}>
+{/* Botón hamburguesa: solo visible en mobile/tablet (CSS) */}
+                <button
+                    className="menu-btn"
+                    aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                    aria-expanded={isMenuOpen}
+                    onClick={toggleMenu}
+                >
                     <svg
                         className="icon"
                         fill="none"
@@ -28,31 +38,23 @@ export default function Header() {
                     </svg>
                 </button>
 
-                {/*Contenedor del buscador
-
-                <div className="search-container">
-                    <svg
-                        className="search-icon"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                    </svg>
-
-                    <input
-                        type="text"
-                        placeholder="Buscar..."
-                        className="search-input"
-                    />
-                </div>
-            */}
+                {/* Navegación horizontal: solo visible en desktop (CSS) */}
+                <nav className="desktop-nav">
+                    <ul>
+                        {visibleItems.map(item => (
+                            <li key={item.path}>
+                                <NavLink
+                                    to={item.path}
+                                    className={({ isActive }) =>
+                                        isActive ? 'desktop-nav-link active' : 'desktop-nav-link'
+                                    }
+                                >
+                                    {item.label}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
             </header>
 
             {/* El menú lateral va acá: hermano del header, fuera del contenedor flex */}

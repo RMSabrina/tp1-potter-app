@@ -100,6 +100,48 @@
 }
 
 
+.desktop-nav {
+  display: none; /* oculto por default (mobile/tablet) */
+}
+
+.desktop-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.desktop-nav-link {
+  color: #fbfcff;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 6px 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.desktop-nav-link:hover {
+  color: #d4af37; /* dorado, consistente con tu paleta Harry Potter */
+}
+
+.desktop-nav-link.active {
+  color: #d4af37;
+  border-bottom-color: #d4af37;
+}
+
+/* A partir de 1024px: mostrar nav horizontal, ocultar hamburguesa */
+@media (min-width: 1024px) {
+  .menu-btn {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    margin-left: 24px;
+  }
+}
+
+
 /* ----------------------------------------------------
    MEDIA QUERIES
 ---------------------------------------------------- */
