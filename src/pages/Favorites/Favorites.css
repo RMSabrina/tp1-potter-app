@@ -9,3 +9,35 @@ h1{
     margin-bottom: 2rem;
     position: relative;
 }
+
+.favorites-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.favorites-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-serif, 'EB Garamond', serif);
+  color: var(--sepia, #e7dace);
+}
+
+.favorites-sort select {
+  font-family: inherit;
+  color: var(--sepia, #2B2118);
+  background-color: var(--parchment, #E8D9AE);
+  border: 2px solid var(--brass, #A6832E);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.favorites-sort select:focus {
+  outline: 2px solid var(--lacre, #7A1F2B);
+  outline-offset: 2px;
+}

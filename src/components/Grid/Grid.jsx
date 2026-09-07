@@ -1,4 +1,3 @@
-import Card from '../Card/Card';
 import './Grid.css'
 
 export default function Grid({results, renderItem, variant = 'default'}) {
