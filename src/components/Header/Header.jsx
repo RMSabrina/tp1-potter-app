@@ -15,7 +15,7 @@ export default function Header() {
     return (
         <>
             <header className="header-container">
-{/* Botón hamburguesa: solo visible en mobile/tablet (CSS) */}
+                {/* Botón hamburguesa: solo visible en mobile/tablet (CSS) */}
                 <button
                     className="menu-btn"
                     aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -37,7 +37,50 @@ export default function Header() {
                         />
                     </svg>
                 </button>
-
+                {location.pathname !== '/' && (
+                    <NavLink
+                        to="/"
+                        className="home-btn"
+                        aria-label="Volver al inicio"
+                    >
+                        <svg
+                            className="icon-home"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M3 11.5L12 4l9 7.5M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"
+                            />
+                        </svg>
+                    </NavLink>
+                )}
+                <NavLink
+                    to="/favorites"
+                    className={({ isActive }) =>
+                        isActive ? 'favorites-btn active' : 'favorites-btn'
+                    }
+                    aria-label="Favoritos"
+                >
+                    <svg
+                        className="icon-heart"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill={undefined}
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 21s-6.7-4.35-9.3-8.2C1.1 10.4 1.6 7 4.3 5.4c2.2-1.3 4.9-.6 6.3 1.4l1.4 2 1.4-2c1.4-2 4.1-2.7 6.3-1.4 2.7 1.6 3.2 5 1.6 7.4C18.7 16.65 12 21 12 21z"
+                        />
+                    </svg>
+                </NavLink>
                 {/* Navegación horizontal: solo visible en desktop (CSS) */}
                 <nav className="desktop-nav">
                     <ul>
