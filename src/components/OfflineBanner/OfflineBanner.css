@@ -1,0 +1,12 @@
+/* OfflineBanner.css */
+.offline-banner {
+  background-color: #7A1F2B;
+  color: #E8D9AE;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-family: serif;
+  font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
