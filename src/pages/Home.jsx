@@ -31,7 +31,7 @@ const renderContent = () => {
             return <p>Cargando información...</p>;
         }
 
-        if (isOffline && errorCarga) {
+        if (isOffline && loadingError) {
             return (
                 <div className="mensaje-offline">
                     <h2>Sin conexión 📡</h2>
@@ -40,7 +40,7 @@ const renderContent = () => {
             );
         }
 
-        if (errorCarga) {
+        if (loadingError) {
             return <p>Hubo un problema al contactar con el Ministerio de Magia.</p>;
         }
 
