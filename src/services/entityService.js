@@ -12,7 +12,6 @@ export const getEntityById = async (entity, id) => {
   }
 };
 
-//getCharacters (home) se mantiene igual, es específico de esa vista
 export const getCharacters = async () => {
   try {
     const response = await fetch('https://api.potterdb.com/v1/characters?page[size]=50');

@@ -14,7 +14,7 @@ import './App.css'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       {/* El Header queda por fuera de Routes para que se vea en todas las pantallas. */}
       <Header navItems={NAV_ITEMS}></Header>
         <Routes>

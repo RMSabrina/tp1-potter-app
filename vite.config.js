@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  base: '/tp1-potter-app/',
   plugins: [
     react(),
     VitePWA({
@@ -12,8 +13,8 @@ export default defineConfig({
         name: 'Wizarding World Search',
         short_name: 'WizardSearch',
         description: 'Explorá el universo mágico: personajes, hechizos, pociones y más.',
-        start_url: '/',
-        scope: '/',
+        start_url: '/tp1-potter-app/',
+        scope: '/tp1-potter-app/',
         display: 'standalone',
         orientation: 'portrait-primary',
         background_color: '#E8D9AE',
