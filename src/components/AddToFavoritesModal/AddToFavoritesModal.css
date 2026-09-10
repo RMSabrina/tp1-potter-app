@@ -1,5 +1,3 @@
-/* AddToFavoritesModal.css */
-
 .modal-overlay {
   --parchment: #e8d9ae;
   --parchment-dark: #ddc98f;
@@ -28,7 +26,8 @@
   overflow-y: auto;
   background: var(--parchment);
   color: var(--ink);
-  padding: 36px 32px 28px;
+  /* Padding reducido para móvil */
+  padding: 28px 20px 22px; 
   border-radius: 2px;
   border: 1px solid var(--brass);
   box-shadow:
@@ -122,7 +121,7 @@
 .modal-actions {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center; 
   gap: 14px;
   margin-top: 8px;
 }
@@ -146,7 +145,7 @@
   color: var(--ink);
 }
 
-/* El botón principal se ve como un sello de lacre */
+/* El botón principal, como un sello de lacre */
 .modal-btn--seal {
   width: 84px;
   height: 84px;
@@ -193,19 +192,19 @@
   background: var(--parchment-dark);
 }
 
-/* Respeta preferencia de movimiento reducido */
-@media (prefers-reduced-motion: reduce) {
-  .modal-btn--seal {
-    transition: none;
-  }
-}
 
-@media (max-width: 480px) {
+@media (min-width: 481px) {
   .modal-content {
-    padding: 28px 20px 22px;
+    padding: 36px 32px 28px;
   }
 
   .modal-actions {
-    justify-content: center;
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-btn--seal {
+    transition: none;
   }
 }

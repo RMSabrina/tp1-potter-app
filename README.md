@@ -1,16 +1,53 @@
-# React + Vite
+# Wizarding World Search 🪄
+![React](https://img.shields.io/badge/react-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Es una aplicación web desarrollada como Trabajo Integrador del módulo 1, que permite buscar y explorar personajes, hechizos y pociones del universo de Harry Potter, consumiendo la API pública de [PotterDB](https://potterdb.com/).
 
-Currently, two official plugins are available:
+**Demo en línea (GitHub Pages):** https://rmsabrina.github.io/tp1-potter-app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Requisitos previos
 
-## React Compiler
+- [Node.js](https://nodejs.org/) v18 o superior
+- npm (incluido con Node.js)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Instalación y ejecución local
 
-## Expanding the ESLint configuration
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/RMSabrina/tp1-potter-app.git
+   cd tp1-potter-app
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Instalar las dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Levantar el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+   La aplicación quedará disponible en `http://localhost:5173/` (o el puerto que indique la terminal).
+
+## Scripts disponibles
+
+| Comando           | Descripción                                              |
+|--------------------|-----------------------------------------------------------|
+| `npm run dev`      | Inicia el servidor de desarrollo con hot reload           |
+| `npm run build`    | Genera la build de producción en la carpeta `dist/`       |
+| `npm run preview`  | Sirve localmente la build de producción para probarla     |
+
+## Tecnologías principales
+
+- **React 19** + **Vite** como framework y bundler
+- **React Router DOM** para el ruteo entre vistas
+- **React Leaflet** / **Leaflet** para el mapa de la sección de contacto
+- **vite-plugin-pwa** (Workbox) para el soporte offline / PWA
+- **PotterDB API** como fuente de datos
+
+## Documentación adicional
+
+Para el detalle del enfoque, las decisiones técnicas y la relación con los requisitos funcionales, ver [`ENFOQUE.md`](./ENFOQUE.md).

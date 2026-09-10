@@ -55,6 +55,8 @@
   font-size: 1.2rem;
   color: #8aafe2;
   cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
 }
 
 .menu-drawer-nav ul {
@@ -81,4 +83,21 @@
   color: #0e3da1;
   background-color: #bdcbdd;
   border-left: 4px solid #365cad;
+}
+
+@media (hover: hover) {
+  .menu-close-btn:hover {
+    color: #ffffff;
+  }
+
+  .drawer-link:hover {
+    background-color: #162136;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-backdrop,
+  .menu-drawer {
+    display: none !important;
+  }
 }

@@ -1,4 +1,3 @@
-// components/OfflineBanner/OfflineBanner.jsx
 import { useOnlineStatus } from '../../hooks/useOnlineStatus'
 import './OfflineBanner.css'
 

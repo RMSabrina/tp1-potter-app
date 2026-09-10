@@ -6,8 +6,6 @@
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid #e5e7eb;
-
   background:
     radial-gradient(
       circle at 50% 0%,
@@ -21,25 +19,19 @@
     );
 
   border-bottom: 1px solid rgba(180, 190, 210, 0.2);
-
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-
   z-index: 1000;
+  gap: 12px;
 }
 
 .header-container::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   pointer-events: none;
-
   background-image:
     radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px);
-
   background-size: 90px 90px;
-
   opacity: 0.12;
 }
 
@@ -94,11 +86,9 @@
   outline: none;
   transition: border-color 0.2s ease-in-out;
 }
-
 .search-input:focus {
   border-color: #4e23c4;
 }
-
 
 .desktop-nav {
   display: none; /* oculto por default (mobile/tablet) */
@@ -121,7 +111,7 @@
 }
 
 .desktop-nav-link:hover {
-  color: #d4af37; /* dorado, consistente con tu paleta Harry Potter */
+  color: #d4af37;
 }
 
 .desktop-nav-link.active {
@@ -134,7 +124,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto; /* lo manda a la derecha en mobile/tablet */
+  margin-left: auto; /* a la derecha en mobile/tablet */
   color: #fbfcff;
   text-decoration: none;
   padding: 4px;
@@ -157,7 +147,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 75%;
+  margin-left: auto;
   color: #fbfcff;
   text-decoration: none;
   padding: 4px;
@@ -172,46 +162,15 @@
   height: 20px;
 }
 
-@media (min-width: 1024px) {
-  .home-btn {
-    display: none;
-  }
-}
-/* A partir de 1024px se oculta: ya está la nav horizontal extendida */
-@media (min-width: 1024px) {
-  .favorites-btn {
-    display: none;
-  }
-}
 
-/* A partir de 1024px: mostrar nav horizontal, ocultar hamburguesa */
-@media (min-width: 1024px) {
-  .menu-btn {
-    display: none;
-  }
-
-  .desktop-nav {
-    display: flex;
-    margin-left: 24px;
-  }
-}
-
-
-/* ----------------------------------------------------
-   MEDIA QUERIES
----------------------------------------------------- */
-
-/* 481px – 767px */
+/* Landscape (481px – 767px) */
 @media (min-width: 481px) {
-  .header-container {
-    padding: 12px 16px;
-  }
   .search-input {
     max-width: 180px; 
   }
 }
 
-/* 768px – 1023px */
+/* Tablet (768px – 1023px) */
 @media (min-width: 768px) {
   .header-container {
     padding: 16px 24px; 
@@ -221,12 +180,27 @@
   }
 }
 
-/* más de 1024px*/
+/* Desktop (más de 1024px) */
 @media (min-width: 1024px) {
   .header-container {
     padding: 16px 32px;
   }
+  
   .search-input {
     max-width: 300px; 
   }
+
+  /* Ocultar los elementos mobile y mostra la nav de escritorio*/
+  .menu-btn,
+  .home-btn,
+  .favorites-btn {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    margin-left: auto; 
+  }
+
+
 }

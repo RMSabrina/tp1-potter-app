@@ -8,9 +8,7 @@
   --seal: #7a1f2b;
 
   display: flex;
-  /* MOBILE-FIRST: Por defecto en móviles pequeños, la tarjeta se apila */
   flex-direction: column; 
-  /* ESTA ES LA MAGIA: Evita que el enlace de la imagen se estire */
   align-items: flex-start;
   gap: 18px;
   background: var(--parchment);
@@ -51,12 +49,11 @@
 }
 
 .favorite-card-media {
-  position: relative; /* Clave para que el sello se posicione respecto a este div */
+  position: relative; 
   flex-shrink: 0;
   display: inline-block;
 }
 
-/* El link de la imagen ya no necesita flex-shrink, se encarga el media */
 .favorite-card-image-link {
   display: block; 
 }
