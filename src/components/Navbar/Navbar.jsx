@@ -9,10 +9,8 @@ export default function Navbar({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Fondo oscuro para cerrar al clickear afuera */}
       {isOpen && <div className="menu-backdrop" onClick={onClose} />}
 
-      {/* Drawer lateral */}
       <aside className={`menu-drawer ${isOpen ? 'is-open' : ''}`}>
         <div className="menu-drawer-header">
           <h3>Navegación</h3>

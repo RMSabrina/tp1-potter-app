@@ -1,16 +1,9 @@
-// ============================================================
-// ContactPage.jsx (actualizado con sección mágica)
-// ============================================================
-
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './Contact.css';
 
-// ------------------------------------------------------------
-// 1. Fix icono de marcador (bug conocido de Leaflet + bundlers)
-// ------------------------------------------------------------
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -18,25 +11,20 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
 });
 
-// ------------------------------------------------------------
-// 2. Datos del desarrollador/estudio (editar según corresponda)
-// ------------------------------------------------------------
 const DEVELOPER_INFO = {
-  name: 'Sabrina R.', // <-- completar
-  role: 'Desarrolladora Frontend',
-  email: 'contacto@ejemplo.com', // <-- completar
-  phone: '+54 11 0000-0000', // <-- completar
+  name: 'Lumos Logic Studios',
+  role: 'Invocadores de Código & Diseño',
+  email: 'russellsabrinam@gmail.com',
+  phone: '+54 11 0000-0000',
   github: 'https://github.com/RMSabrina',
 };
 
-// Coordenadas fijas pedidas por la consigna (Catedral de La Plata)
 const OFFICE_LOCATION = {
   lat: -34.9215,
   lng: -57.9536,
   label: 'Catedral de La Plata',
 };
 
-// Estado inicial del formulario mágico
 const INITIAL_FORM_STATE = {
   name: '',
   house: '',
@@ -44,14 +32,10 @@ const INITIAL_FORM_STATE = {
   message: '',
 };
 
-// ------------------------------------------------------------
-// 3. Componente principal
-// ------------------------------------------------------------
 function Contact() {
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
   const [sent, setSent] = useState(false);
 
-  // -- 3.0 Handlers del formulario --
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -59,7 +43,6 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Integración pendiente: reemplazar por llamada real a API/backend
     console.log('Lechuza enviada con:', formData);
     setSent(true);
     setFormData(INITIAL_FORM_STATE);
@@ -67,9 +50,21 @@ function Contact() {
 
   return (
     <section className="contact-page">
-      <h1>Contacto</h1>
+      <h1 className='contact-title'>Contacto</h1>
 
-      {/* --- 3.1 Datos del desarrollador --- */}
+      {/* Sobre la empresa */}
+      <div className="about-company">
+        <h2>Sobre {DEVELOPER_INFO.name}</h2>
+        <p><em>"Donde la antigua magia se encuentra con el código moderno."</em></p>
+        <p>
+          Somos un estudio independiente apasionado por tejer hechizos en forma de aplicaciones.
+          Nuestra base de operaciones está celosamente camuflada bajo las imponentes torres
+          de la Catedral de La Plata. Dicen que nuestra oficina es mucho más grande por
+          dentro de lo que parece por fuera.
+        </p>
+      </div>
+
+      {/* Datos del desarrollador */}
       <div className="contact-info">
         <p><strong>{DEVELOPER_INFO.name}</strong> | {DEVELOPER_INFO.role}</p>
         <p>Email: <a href={`mailto:${DEVELOPER_INFO.email}`}>{DEVELOPER_INFO.email}</a></p>
@@ -82,7 +77,7 @@ function Contact() {
         </p>
       </div>
 
-      {/* --- 3.2 Mapa de ubicación --- */}
+
       <div className="contact-map">
         <MapContainer
           center={[OFFICE_LOCATION.lat, OFFICE_LOCATION.lng]}
@@ -100,7 +95,7 @@ function Contact() {
         </MapContainer>
       </div>
 
-      {/* --- 3.3 Formulario mágico "Envianos tu lechuza" --- */}
+      {/* Formulario mágico "Envianos tu lechuza" */}
       <div className="owl-post">
         <h2>🦉 Envianos tu lechuza</h2>
         <p className="owl-post-subtitle">

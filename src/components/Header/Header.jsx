@@ -99,8 +99,6 @@ export default function Header() {
                     </ul>
                 </nav>
             </header>
-
-            {/* El menú lateral va acá: hermano del header, fuera del contenedor flex */}
             <Navbar isOpen={isMenuOpen} onClose={closeMenu} />
         </>
     );

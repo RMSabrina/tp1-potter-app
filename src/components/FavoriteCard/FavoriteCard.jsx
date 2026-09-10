@@ -1,4 +1,3 @@
-// src/components/FavoriteCard/FavoriteCard.jsx
 import { Link } from 'react-router-dom';
 import './FavoriteCard.css';
 

@@ -37,8 +37,7 @@ function FilterField({ field, value, onChange }) {
   );
 }
 
-// Helper: arma el objeto de filtros vacío para una entidad dada,
-//     incluyendo siempre el filtro común (name) + los propios de la entidad
+// Helper: arma el objeto de filtros vacío para una entidad dada, incluyendo siempre el filtro común (name) + los propios de la entidad
 function getEmptyFilters(entity) {
   const fields = [COMMON_FIELD, ...(ENTITY_CONFIG[entity]?.fields || [])];
   return fields.reduce((acc, field) => {
@@ -49,9 +48,7 @@ function getEmptyFilters(entity) {
 
 
 export default function Search() {
-  const savedSearch = getSearchState(); // se lee UNA sola vez
-
-  // Estado para la categoría actual (endpoint de la API)
+  const savedSearch = getSearchState();
   const [entity, setEntity] = useState(savedSearch?.entity || 'characters');
 
   // Estado unificado para todos los posibles filtros (derivado del config)
@@ -87,7 +84,7 @@ export default function Search() {
     try {
       const formattedData = await searchEntities(entity, filters);
       setResults(formattedData);
-      saveSearchState({ entity, filters, results: formattedData }); // <-- agregar esta línea
+      saveSearchState({ entity, filters, results: formattedData });
     } catch (err) {
       console.error(err);
       setError("Hubo un problema al realizar la búsqueda.");
@@ -115,7 +112,6 @@ export default function Search() {
 
           <hr />
 
-          {/* FILTRO COMÚN: NOMBRE */}
           <FilterField
             field={COMMON_FIELD}
             value={filters.name}

@@ -60,11 +60,7 @@ export default function Detail() {
 
   const { primaryFields = [], optionalFields = [] } = config.detail || {};
 
-
-  // ------------------------------------------------------------
-  // Favoritos: si ya es favorito, lo quita directo.
-  // Si no, abre el modal para completar priority/category/note.
-  // ------------------------------------------------------------
+  // Favoritos: si ya es favorito, lo quita
   const handleToggleFavorite = () => {
     if (isFav) {
       removeFromFavorites(id, entity);
@@ -93,8 +89,6 @@ export default function Detail() {
   return (
     <main className="detail-container">
       <div className="detail-card">
-
-        {/* --- BOTÓN DE VOLVER FLOTANTE --- */}
         <button className="back-btn" onClick={() => navigate(-1)} aria-label="Volver">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>

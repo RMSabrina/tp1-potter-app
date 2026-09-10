@@ -33,7 +33,6 @@ export default function Home() {
             return (
                 <div className="magical-loader-container">
                     <div className="snitch"></div>
-                    {/* Usamos la misma clase que armamos antes para el texto */}
                     <p className="status-message glowing-text">Buscando pergaminos...</p>
                 </div>
             );
@@ -65,7 +64,7 @@ export default function Home() {
     return (
         <main className="home-container">
             <Hero />
-            {/* Llamamos a la función que decide qué renderizar basado en los estados */}
+            {/* Función que decide qué renderizar basado en los estados */}
             {renderContent()}
         </main>
     );

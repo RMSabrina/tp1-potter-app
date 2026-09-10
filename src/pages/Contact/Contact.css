@@ -1,3 +1,12 @@
+.contact-title {
+  color: #e7dcd2;
+  text-align: center;
+  margin-bottom: 32px;
+  font-family: Cormorant Garamond, Georgia, serif;
+  font-size: 34px;
+  font-weight: 600;
+}
+
 .contact-page {
   max-width: 700px;
   margin: 0 auto;
@@ -18,18 +27,25 @@
   margin-bottom: 2rem;
 }
 
-a{
-    color: rgb(250, 235, 215, 0.8);
+a {
+  color: rgb(250, 235, 215, 0.8);
 }
 
-.contact-info p:first-child{
-    margin-bottom: 1rem;
-    
+.contact-info p:first-child {
+  margin-bottom: 1rem;
+
 }
+
+.about-company {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 
 /* --- Sección "Envianos tu lechuza" --- */
 .owl-post {
-  background: #f4e9d8; /* tono pergamino */
+  background: #f4e9d8;
+  /* tono pergamino */
   border: 2px solid #8b5e34;
   border-radius: 10px;
   padding: 1.5rem;
