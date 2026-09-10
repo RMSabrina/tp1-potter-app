@@ -1,21 +1,15 @@
-/* App.css */
-
 body {
   margin: 0;
   min-height: 100vh;
 
   background:
-    radial-gradient(
-      circle at 50% 20%,
+    radial-gradient(circle at 50% 20%,
       rgba(35, 58, 95, 0.35),
-      transparent 45%
-    ),
-    linear-gradient(
-      180deg,
+      transparent 45%),
+    linear-gradient(180deg,
       #050914 0%,
       #080d19 50%,
-      #03060d 100%
-    );
+      #03060d 100%);
 
   color: white;
 }
@@ -24,17 +18,17 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-
   pointer-events: none;
-
+  z-index: -1;
   background-image:
-    radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px);
+    radial-gradient(circle, rgba(255, 255, 255, .8) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, .5) 1px, transparent 1px);
 
-  background-size:
-    120px 120px,
-    180px 180px;
+  background-size: 100px 100px, 150px 150px;
+  background-position: 20px 30px, 80px 100px;
 
+  /* Animación base del titileo */
+  animation: twinkle 4s ease-in-out infinite alternate;
   background-position:
     20px 30px,
     80px 100px;
@@ -50,10 +44,50 @@ body::after {
   pointer-events: none;
 
   background:
-    radial-gradient(circle at 20% 30%, white 0 1px, transparent 2px),
-    radial-gradient(circle at 70% 20%, white 0 1px, transparent 2px),
-    radial-gradient(circle at 40% 75%, white 0 1px, transparent 2px),
-    radial-gradient(circle at 85% 65%, white 0 1px, transparent 2px);
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 40% 75%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 85% 65%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px);
 
+
+  animation: twinkle 5s ease-in-out infinite alternate-reverse;
   opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  body {
+    background:
+      radial-gradient(ellipse at 50% 0%,
+        rgba(35, 58, 95, 0.35),
+        transparent 60%),
+      linear-gradient(180deg,
+        #050914 0%,
+        #080d19 50%,
+        #03060d 100%);
+  }
+
+  body::before {
+    background-size: 120px 120px, 180px 180px;
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Regla de accesibilidad obligatoria: si el usuario tiene desactivadas 
+   las animaciones en su sistema operativo, apago el titileo */
+@media (prefers-reduced-motion: reduce) {
+
+  body::before,
+  body::after {
+    animation: none;
+    opacity: 0.4;
+  }
 }

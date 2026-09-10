@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ROUTES, NAV_ITEMS } from './constants/routes'; 
 
-import Home from './pages/Home';
+import Home from './pages/Home/Home.jsx';
 import Search from './pages/Search/Search.jsx';
 import Detail from './pages/Detail/Detail.jsx';
 import Favorites from './pages/Favorites/Favorites.jsx';
 import History from './pages/History/History.jsx';
-import Contact from './pages/Contact';
+import Contact from './pages/Contact/Contact.jsx';
 
 import Header from './components/Header/Header.jsx';
 import './App.css'
