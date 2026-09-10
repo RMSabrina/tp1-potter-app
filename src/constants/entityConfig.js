@@ -1,7 +1,3 @@
-// Configuración única por entidad: cada campo define
-//     - name: clave local (la que usa el estado `filters`)
-//     - apiKey: clave que espera la API potterdb
-//     - label / type / placeholder / options: para renderizar el form
 export const ENTITY_CONFIG = {
   characters: {
     label: 'Personajes',

@@ -7,7 +7,7 @@ export function useNetworkStatus() {
     const handleOffline = () => setIsOffline(true);
     const handleOnline = () => setIsOffline(false);
 
-    // Escuchamos los eventos nativos del navegador
+    // Escuchar los eventos nativos del navegador
     window.addEventListener('offline', handleOffline);
     window.addEventListener('online', handleOnline);
 
