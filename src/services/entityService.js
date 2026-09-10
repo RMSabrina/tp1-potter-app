@@ -1,4 +1,3 @@
-// Fetch genérico de detalle por entidad + id
 export const getEntityById = async (entity, id) => {
   try {
     const response = await fetch(`https://api.potterdb.com/v1/${entity}/${id}`);

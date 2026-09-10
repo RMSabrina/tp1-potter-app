@@ -1,8 +1,4 @@
-// ============================================================
-// searchStateService.js
-// Persiste la última búsqueda (entidad + filtros + resultados)
-// para poder restaurarla al volver desde el detalle
-// ============================================================
+// Persiste la última búsqueda (entidad + filtros + resultados) para poder restaurarla al volver desde el detalle
 
 const STORAGE_KEY = 'hp_last_search';
 
