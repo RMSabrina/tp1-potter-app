@@ -1,0 +1,54 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+  min-height: 80vh;
+}
+
+.status-message {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 90%;
+  color: var(--hp-text-muted, #a8a6b3); 
+  font-family: var(--hp-font-body, 'Helvetica Neue', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.status-message.error {
+  color: var(--hp-error, #c0392b);
+  font-weight: 600;
+}
+
+.status-message.offline h2 {
+  font-family: var(--hp-font-display, 'Georgia', serif);
+  color: var(--hp-gold, #d3a625);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.status-message.offline p {
+  margin: 0;
+}
+
+/* Keyframe para que los textos aparezcan suavemente y no de golpe */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (min-width: 768px) {
+  .status-message {
+    margin-top: 4rem;
+    font-size: 1.25rem;
+    max-width: 600px;}
+
+  .status-message.offline h2 {
+    font-size: 1.75rem;
+  }
+}

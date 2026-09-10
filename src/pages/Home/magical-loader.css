@@ -1,0 +1,99 @@
+.magical-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.snitch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Un degradado radial para darle un efecto esférico 3D de oro */
+  background: radial-gradient(circle at 30% 30%, #ffe066, #d3a625, #8a6a1c);
+  box-shadow: 
+    inset -4px -4px 10px rgba(0,0,0,0.4), 
+    0 10px 15px rgba(0,0,0,0.2),
+    0 0 20px rgba(211, 166, 37, 0.4); /* Resplandor mágico */
+  
+  /* Animación de levitación vertical */
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* LAS ALAS (Pseudo-elementos compartidos) */
+.snitch::before,
+.snitch::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  width: 45px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  /* Un borde suave para simular la estructura del ala */
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+  z-index: -1; /* Para que las alas queden por detrás del cuerpo */
+}
+
+/* Ala Izquierda */
+.snitch::before {
+  right: 85%;
+  /* Se dobla desde su punto de unión (derecha) */
+  transform-origin: right center;
+  /* Forma de gota alargada hacia la izquierda */
+  border-radius: 100% 0 40% 100%;
+  /* Aleteo súper rápido */
+  animation: flap-left 0.15s linear infinite alternate;
+}
+
+/* Ala Derecha */
+.snitch::after {
+  left: 85%;
+  /* Se dobla desde su punto de unión (izquierda) */
+  transform-origin: left center;
+  /* Forma de gota alargada hacia la derecha */
+  border-radius: 0 100% 100% 40%;
+  /* Aleteo súper rápido */
+  animation: flap-right 0.15s linear infinite alternate;
+}
+
+
+.glowing-text {
+  animation: text-glow 2s ease-in-out infinite;
+  margin-top: 0;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Aleteo Izquierdo */
+@keyframes flap-left {
+  0% { transform: rotate(15deg) skewY(-10deg); }
+  100% { transform: rotate(-45deg) skewY(10deg); }
+}
+
+/* Aleteo Derecho */
+@keyframes flap-right {
+  0% { transform: rotate(-15deg) skewY(10deg); }
+  100% { transform: rotate(45deg) skewY(-10deg); }
+}
+
+/* Palpitación del texto */
+@keyframes text-glow {
+  0%, 100% { 
+    opacity: 0.7; 
+    text-shadow: 0 0 0 rgba(211, 166, 37, 0); 
+  }
+  50% { 
+    opacity: 1; 
+    text-shadow: 0 0 10px rgba(211, 166, 37, 0.6); 
+    color: #e8c15a;
+  }
+}
