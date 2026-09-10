@@ -9,8 +9,8 @@ export default function Hero() {
         alt="Siglas HP, ícono de Wizarding World Search"
         className='hero-icon'
       />
-      <h1>Wizarding World Search</h1>
-      <p>Explorá el mundo mágico...</p>
+      <h1>Explorá el Mundo Mágico</h1>
+      <p>Descubrí personajes, hechizos y pociones mientras explorás todo lo que el mundo mágico tiene para ofrecer.</p>
     </section>
   );
 }
