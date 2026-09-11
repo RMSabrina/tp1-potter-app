@@ -10,15 +10,15 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'icons/*.png'],
       manifest: {
-        name: 'Wizarding World Search',
-        short_name: 'WizardSearch',
+        name: 'Mundo Mágico',
+        short_name: 'Mundo Mágico',
         description: 'Explorá el universo mágico: personajes, hechizos, pociones y más.',
         start_url: '/tp1-potter-app/',
         scope: '/tp1-potter-app/',
         display: 'standalone',
         orientation: 'portrait-primary',
         background_color: '#E8D9AE',
-        theme_color: '#7A1F2B',
+        theme_color: '#0b0e1a',
         lang: 'es',
         icons: [
           {
