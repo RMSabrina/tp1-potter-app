@@ -25,7 +25,7 @@ Esta separación busca evitar que toda la lógica quede concentrada en un único
 - **Búsqueda y filtrado de entidades**: resuelto mediante `Search.jsx` + `entityConfig.js`, que define qué filtros y campos corresponden a cada entidad sin duplicar lógica.
 - **Persistencia de la búsqueda**: `searchStateService.js` guarda en `sessionStorage` la entidad, los filtros y los resultados, para que al volver a la vista de búsqueda no se pierda el contexto.
 - **Detalle de una entidad**: ruta genérica `/:entity/:id` que reutiliza el mismo componente `Detail.jsx` para cualquier tipo de recurso.
-- **Favoritos**: `AddToFavoritesModal.jsx` permite asignar prioridad (numérica), categoría y una nota opcional a cada favorito; se listan como tarjetas estilo "entrada de diario", con posibilidad de ordenarlos por prioridad.
+- **Favoritos**: `AddToFavoritesModal.jsx` permite asignar prioridad (numérica), categoría y una nota opcional a cada favorito; se listan como tarjetas estilo "entrada de diario", con posibilidad de ordenarlos por prioridad. Son persistidos en localStorage para mantener la lista guardada entre distintas sesiones del usuario.
 - **Historial**: cada visita a una ficha de detalle se registra automáticamente y se muestra como una línea de tiempo vertical.
 - **Contacto**: formulario temático ("correo por lechuza") con mapa de Leaflet centrado en un punto de referencia local.
 - **Uso offline / PWA**: cacheo de assets y de las últimas búsquedas/resultados mediante Workbox.
