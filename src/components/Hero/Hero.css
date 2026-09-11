@@ -34,14 +34,14 @@
 .hero-container p {
   color: var(--sepia, #f3e7dc);
   opacity: 0.85;
-  font-style: italic;
-  margin: 0;
-  font-size: large;
+  font-family: var(--font-sans);
+  margin: 1rem 0;
+  line-height: 1.5;
+  font-size: medium;
+  font-style: oblique;
 }
 
-/* ----------------------------------------------------
-   MEDIA QUERIES
----------------------------------------------------- */
+/* MEDIA QUERIES */
 
 @media (min-width: 481px) {
   .hero-container {

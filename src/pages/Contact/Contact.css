@@ -16,19 +16,25 @@
 .contact-info {
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  background-color: rgb(2, 2, 32);
-  border-radius: 0.8rem;
-  padding: 1rem;
+  background-color: var(--night-panel);
+  border: 1px solid var(--night-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
   text-align: center;
+  font-family: var(--font-serif);
+  color: var(--night-text);
 }
 
 .contact-map {
   width: 100%;
   margin-bottom: 2rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--brass);
 }
 
 a {
-  color: rgb(250, 235, 215, 0.8);
+    color: var(--brass-hover);
 }
 
 .contact-info p:first-child {
@@ -44,22 +50,23 @@ a {
 
 /* --- Sección "Envianos tu lechuza" --- */
 .owl-post {
-  background: #f4e9d8;
-  /* tono pergamino */
-  border: 2px solid #8b5e34;
-  border-radius: 10px;
+  background: var(--parchment);
+  border: 1px solid var(--brass);
+  border-radius: var(--radius-md);
   padding: 1.5rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  font-family: var(--font-serif);
 }
 
 .owl-post h2 {
-  font-family: 'Georgia', serif;
-  color: #4a2c0f;
-  margin-bottom: 0.3rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--ink);
 }
 
 .owl-post-subtitle {
-  color: #5c4326;
+  color: var(--ink-soft);
   margin-bottom: 1rem;
   font-style: italic;
 }
@@ -72,7 +79,7 @@ a {
 
 .owl-post-form label {
   font-weight: bold;
-  color: #4a2c0f;
+  color: var(--ink);
   margin-top: 0.5rem;
 }
 
@@ -80,29 +87,37 @@ a {
 .owl-post-form select,
 .owl-post-form textarea {
   padding: 0.5rem;
-  border: 1px solid #8b5e34;
-  border-radius: 6px;
-  background: #fffaf0;
+  border: 1px solid var(--brass);
+  border-radius: var(--radius-sm);
+  background: var(--parchment-light);
+  color: var(--ink);
   font-family: inherit;
+}
+
+.owl-post-form input:focus,
+.owl-post-form select:focus,
+.owl-post-form textarea:focus {
+  outline: none;
+  border-color: var(--seal);
 }
 
 .owl-post-submit {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background: #4a2c0f;
-  color: #f4e9d8;
+  background: var(--seal);
+  color: var(--parchment);
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   transition: background 0.2s ease;
 }
 
 .owl-post-submit:hover {
-  background: #6b4423;
+  background: var(--seal-dark);
 }
 
 .owl-post-success {
-  color: #2e5b2e;
+  color: var(--success);
   font-weight: bold;
 }

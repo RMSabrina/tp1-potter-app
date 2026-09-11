@@ -1,10 +1,51 @@
+/* ==========================================================================
+   Design: "Grimorio antiguo"
+   Un solo lugar para toda la paleta y tipografía de la app.
+   El "night" es el chrome exterior (header, nav, fondo del body);
+   el "parchment" es el interior de las páginas/tarjetas.
+   ========================================================================== */
+:root {
+  /* Interior — pergamino */
+  --parchment: #e8d9ae;
+  --parchment-light: #f4ecd8;
+  --parchment-dark: #ddc98f;
+  --ink: #2b2118;
+  --ink-soft: #5a4c3a;
+  --brass: #a6832e;
+  --brass-hover: #c6a048;
+  --seal: #7a1f2b;
+  --seal-dark: #5e1620;
+  --error: #8c2f2f;
+  --error-night: #d98a8a;
+  --success: #2e5b2e;
+
+  /* Exterior — cielo nocturno */
+  --night: #0b0e1a;
+  --night-panel: #12121c;
+  --night-panel-hover: #1a1a26;
+  --night-border: rgba(166, 131, 46, 0.35);
+  --night-text: #f2ead3;
+  --night-text-muted: #b9ae93;
+
+  /* Tipografía */
+  --font-display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-serif: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Montserrat', Arial, sans-serif;
+
+  /* Radios compartidos */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   width: 100%;
   overflow-x: clip;
 }
@@ -13,6 +54,7 @@ img {
   max-width: 100%;
   display: block;
 }
+
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-serif);
 }

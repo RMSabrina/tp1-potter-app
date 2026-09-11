@@ -4,11 +4,12 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './Contact.css';
 
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+const sealIcon = L.divIcon({
+  className: 'map-seal-icon',
+  html: '<span class="map-seal-icon-dot"></span>',
+  iconSize: [22, 22],
+  iconAnchor: [11, 11],
+  popupAnchor: [0, -12],
 });
 
 const DEVELOPER_INFO = {
@@ -89,7 +90,7 @@ function Contact() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[OFFICE_LOCATION.lat, OFFICE_LOCATION.lng]}>
+          <Marker position={[OFFICE_LOCATION.lat, OFFICE_LOCATION.lng]} icon={sealIcon}>
             <Popup>{OFFICE_LOCATION.label}</Popup>
           </Marker>
         </MapContainer>
