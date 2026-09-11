@@ -71,7 +71,7 @@ export default function Wishlist() {
       </div>
 
       {favorites.length === 0 ? (
-        <p>No tenés ítems agregados a favoritos.</p>
+        <p className='empty-favorites-msg'>No tenés ítems agregados a favoritos.</p>
       ) : (
         <Grid
           results={sortedFavorites}

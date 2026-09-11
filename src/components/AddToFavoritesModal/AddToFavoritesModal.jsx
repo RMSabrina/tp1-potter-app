@@ -6,7 +6,7 @@ const NOTE_MAX_LENGTH = 280;
 
 export default function AddToFavoritesModal({
   item,            // { id, entity, name, image }
-  defaultCategory, // sugerido desde ENTITY_CONFIG (ej: "Personajes")
+  defaultCategory, // sugerido desde ENTITY_CONFIG 
   onConfirm,       // (formData) => void
   onClose          // () => void
 }) {
@@ -60,9 +60,7 @@ export default function AddToFavoritesModal({
     setStep('success');
   };
 
-  // ------------------------------------------------------------
   // Estado de confirmación (se muestra tras guardar con éxito)
-  // ------------------------------------------------------------
   if (step === 'success') {
     return (
       <div className="modal-overlay" onClick={onClose}>
