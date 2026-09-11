@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import owlImage from '../../img/howl.png';
 import './Contact.css';
 
 const sealIcon = L.divIcon({
@@ -98,7 +99,10 @@ function Contact() {
 
       {/* Formulario mágico "Envianos tu lechuza" */}
       <div className="owl-post">
-        <h2>🦉 Envianos tu lechuza</h2>
+        <h2>
+          <img src={owlImage} alt="Lechuza mensajera" className="owl-icon" />
+          Envianos tu lechuza
+        </h2>
         <p className="owl-post-subtitle">
           ¿Tenés una consulta, sugerencia o querés unirte a la Orden?
           Completá el pergamino y tu mensaje volará directo a nosotros.

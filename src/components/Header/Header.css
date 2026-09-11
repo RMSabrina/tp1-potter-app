@@ -22,6 +22,7 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
   z-index: 1000;
   gap: 12px;
+  font-family: var(--font-sans);
 }
 
 .header-container::before {
