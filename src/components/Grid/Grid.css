@@ -9,6 +9,10 @@
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 }
 
+.grid-container--compact {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 260px));
+  justify-content: center;
+}
 /* Landscape (481px – 767px)*/
 @media (min-width: 481px) {
   .grid-container {
@@ -30,7 +34,3 @@
   }
 }
 
-.grid-container--compact {
-  grid-template-columns: repeat(auto-fill, minmax(220px, 260px));
-  justify-content: center;
-}

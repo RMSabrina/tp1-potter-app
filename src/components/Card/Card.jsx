@@ -1,4 +1,3 @@
-// src/components/Card.js
 import './Card.css';
 import imageDefault from '../../img/hat1.png'
 import { Link } from 'react-router-dom';

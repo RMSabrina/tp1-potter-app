@@ -1,4 +1,3 @@
-// History.jsx
 import { useEffect, useState } from 'react';
 import { getHistory } from '../../services/historyService.js';
 import HistoryItem from '../../components/HistoryItem/HistoryItem.jsx';

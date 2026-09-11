@@ -53,6 +53,9 @@
   .hero-container {
     gap: 20px;
   }
+  .hero-container p{
+    font-size: larger;
+  }
 }
 
 @media (min-width: 1024px) {
